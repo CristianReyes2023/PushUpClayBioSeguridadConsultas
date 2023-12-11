@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Data.Configuration
 {
-    public class AddressOfficeConfiguration : IEntityTypeConfiguration<Addressoffice>
+    public class AddressOfficeConfiguration : IEntityTypeConfiguration<AddressOffice>
     {
-        public void Configure(EntityTypeBuilder<Addressoffice> builder)
+        public void Configure(EntityTypeBuilder<AddressOffice> builder)
         {
             builder.HasKey(e => e.Id).HasName("PRIMARY");
 

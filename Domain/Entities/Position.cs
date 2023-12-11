@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Domain.Entities;
 
-public partial class Position
+public partial class Position : BaseEntity
 {
-    public int Id { get; set; }
 
     public string NamePosition { get; set; } = null!;
 

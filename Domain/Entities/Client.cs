@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Domain.Entities;
 
-public partial class Client
+public partial class Client : BaseEntity
 {
-    public int Id { get; set; }
 
     public string IdClient { get; set; } = null!;
 
@@ -19,7 +18,7 @@ public partial class Client
 
     public int? IdCityFk { get; set; }
 
-    public virtual ICollection<Addressclient> Addressclients { get; set; } = new List<Addressclient>();
+    public virtual ICollection<AddressClient> AddressClients { get; set; } = new List<AddressClient>();
 
     public virtual ICollection<Contract> Contracts { get; set; } = new List<Contract>();
 

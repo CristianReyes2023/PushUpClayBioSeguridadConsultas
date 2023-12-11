@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Domain.Entities;
 
-public partial class Addressoffice
+public partial class AddressOffice : BaseEntity
 {
-    public int Id { get; set; }
 
     public string TipoVia { get; set; }
 

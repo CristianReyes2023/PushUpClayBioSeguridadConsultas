@@ -17,9 +17,9 @@ public partial class BioseguridadContext : DbContext
     {
     }
 
-    public virtual DbSet<Addressclient> Addressclients { get; set; }
+    public virtual DbSet<AddressClient> Addressclients { get; set; }
 
-    public virtual DbSet<Addressoffice> Addressoffices { get; set; }
+    public virtual DbSet<AddressOffice> Addressoffices { get; set; }
 
     public virtual DbSet<City> Cities { get; set; }
 
@@ -35,9 +35,9 @@ public partial class BioseguridadContext : DbContext
 
     public virtual DbSet<Programming> Programmings { get; set; }
 
-    public virtual DbSet<Refreshtoken> Refreshtokens { get; set; }
+    // public virtual DbSet<Refreshtoken> Refreshtokens { get; set; }
 
-    public virtual DbSet<Rol> Rols { get; set; }
+    // public virtual DbSet<Rol> Rols { get; set; }
 
     public virtual DbSet<State> States { get; set; }
 
@@ -47,9 +47,9 @@ public partial class BioseguridadContext : DbContext
 
     public virtual DbSet<Typeperson> Typepeople { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
+    // public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<Userrol> Userrols { get; set; }
+    // public virtual DbSet<Userrol> Userrols { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) // 2611
     {
