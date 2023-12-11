@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Persistence.Entities;
+namespace Domain.Entities;
 
 public partial class Client
 {
@@ -23,7 +23,7 @@ public partial class Client
 
     public virtual ICollection<Contract> Contracts { get; set; } = new List<Contract>();
 
-    public virtual City? IdCityFkNavigation { get; set; }
+    public virtual City IdCityFkNavigation { get; set; }
 
-    public virtual Typeperson? IdTpersonFkNavigation { get; set; }
+    public virtual Typeperson IdTpersonFkNavigation { get; set; }
 }

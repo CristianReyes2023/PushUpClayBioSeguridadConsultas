@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Persistence.Entities;
+namespace Domain.Entities;
 
 public partial class User
 {
@@ -13,5 +13,5 @@ public partial class User
 
     public string Password { get; set; } = null!;
 
-    public virtual Refreshtoken? Refreshtoken { get; set; }
+    public virtual Refreshtoken Refreshtoken { get; set; }
 }

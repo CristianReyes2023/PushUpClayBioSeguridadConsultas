@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Persistence.Entities;
+namespace Domain.Entities;
 
 public partial class Userrol
 {
@@ -9,7 +9,7 @@ public partial class Userrol
 
     public int? RolId { get; set; }
 
-    public virtual Rol? Rol { get; set; }
+    public virtual Rol Rol { get; set; }
 
-    public virtual User? Usuario { get; set; }
+    public virtual User Usuario { get; set; }
 }
