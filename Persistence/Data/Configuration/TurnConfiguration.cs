@@ -16,10 +16,13 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("turns");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
             builder.Property(e => e.HourShiftFinally).HasColumnType("time");
             builder.Property(e => e.HourShiftStart).HasColumnType("time");
-            builder.Property(e => e.NameTurns).HasMaxLength(50);
+            builder.Property(e => e.NameTurns)
+                .IsRequired()
+                .HasMaxLength(50);
         }
     }
 }

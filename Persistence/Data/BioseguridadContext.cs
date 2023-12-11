@@ -8,11 +8,8 @@ namespace Persistence.Data;
 
 public partial class BioseguridadContext : DbContext
 {
-    public BioseguridadContext()
-    {
-    }
 
-    public BioseguridadContext(DbContextOptions<BioseguridadContext> options)
+    public BioseguridadContext(DbContextOptions options)
         : base(options)
     {
     }
@@ -41,7 +38,7 @@ public partial class BioseguridadContext : DbContext
 
     public virtual DbSet<State> States { get; set; }
 
-    public virtual DbSet<Statecontract> Statecontracts { get; set; }
+    public virtual DbSet<StateContract> Statecontracts { get; set; }
 
     public virtual DbSet<Turn> Turns { get; set; }
 
@@ -56,5 +53,4 @@ public partial class BioseguridadContext : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
-
 }

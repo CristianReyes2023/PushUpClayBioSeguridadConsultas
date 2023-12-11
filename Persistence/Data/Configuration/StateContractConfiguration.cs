@@ -8,16 +8,19 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Data.Configuration
 {
-    public class StateContractConfiguration : IEntityTypeConfiguration<Statecontract>
+    public class StateContractConfiguration : IEntityTypeConfiguration<StateContract>
     {
-        public void Configure(EntityTypeBuilder<Statecontract> builder)
+        public void Configure(EntityTypeBuilder<StateContract> builder)
         {
             builder.HasKey(e => e.Id).HasName("PRIMARY");
 
             builder.ToTable("statecontract");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
-            builder.Property(e => e.Description).HasColumnType("text");
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
+            builder.Property(e => e.Description)
+                .IsRequired()
+                .HasColumnType("text");
         }
     }
 }

@@ -6,7 +6,7 @@ using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    public interface IStateContract : IGenericRepository<Statecontract>
+    public interface IStateContract : IGenericRepository<StateContract>
     {
         
     }

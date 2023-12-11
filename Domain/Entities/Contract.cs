@@ -20,7 +20,7 @@ public partial class Contract : BaseEntity
 
     public virtual Employee IdEmployeeFkNavigation { get; set; } = null!;
 
-    public virtual Statecontract IdStateContractFkNavigation { get; set; } = null!;
+    public virtual StateContract IdStateContractFkNavigation { get; set; } = null!;
 
     public virtual ICollection<Programming> Programmings { get; set; } = new List<Programming>();
 }

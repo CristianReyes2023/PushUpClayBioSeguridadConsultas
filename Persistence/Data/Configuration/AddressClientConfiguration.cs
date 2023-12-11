@@ -16,9 +16,10 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("addressclient");
 
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
             builder.HasIndex(e => e.IdClientFk, "IdClientFk");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
             builder.Property(e => e.Bis)
                 .HasMaxLength(10)
                 .IsFixedLength()

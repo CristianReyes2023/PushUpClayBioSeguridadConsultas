@@ -11,7 +11,7 @@ using Persistence.Data;
 namespace Persistence.Data.Migrations
 {
     [DbContext(typeof(BioseguridadContext))]
-    [Migration("20231211140535_FirstMigrations")]
+    [Migration("20231211174249_FirstMigrations")]
     partial class FirstMigrations
     {
         /// <inheritdoc />
@@ -22,9 +22,10 @@ namespace Persistence.Data.Migrations
                 .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Domain.Entities.Addressclient", b =>
+            modelBuilder.Entity("Domain.Entities.AddressClient", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Bis")
@@ -85,14 +86,18 @@ namespace Persistence.Data.Migrations
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique();
+
                     b.HasIndex(new[] { "IdClientFk" }, "IdClientFk");
 
                     b.ToTable("addressclient", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.Addressoffice", b =>
+            modelBuilder.Entity("Domain.Entities.AddressOffice", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Bis")
@@ -153,6 +158,10 @@ namespace Persistence.Data.Migrations
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id1");
+
                     b.HasIndex(new[] { "IdEmployeeFk" }, "IdEmployeeFk");
 
                     b.ToTable("addressoffice", (string)null);
@@ -167,22 +176,27 @@ namespace Persistence.Data.Migrations
                     b.Property<int>("IdStateFk")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdStateFkNavigationId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NameCity")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("PRIMARY");
 
-                    b.HasIndex("IdStateFkNavigationId");
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id2");
 
-                    b.ToTable("Cities");
+                    b.HasIndex(new[] { "IdStateFk" }, "IdStateFk");
+
+                    b.ToTable("city", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Client", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateRegister")
@@ -192,6 +206,7 @@ namespace Persistence.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("IdClient")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
@@ -200,15 +215,21 @@ namespace Persistence.Data.Migrations
                         .HasColumnName("IdTPersonFk");
 
                     b.Property<string>("NameCliente")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("TelephoneNumber")
+                        .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("varchar(11)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
+
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id3");
 
                     b.HasIndex(new[] { "IdCityFk" }, "IdCityFk");
 
@@ -220,6 +241,7 @@ namespace Persistence.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Contract", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateContract")
@@ -241,6 +263,10 @@ namespace Persistence.Data.Migrations
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id4");
+
                     b.HasIndex(new[] { "IdClientFk" }, "IdClientFk")
                         .HasDatabaseName("IdClientFk1");
 
@@ -255,14 +281,20 @@ namespace Persistence.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Country", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("NameCountry")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
+
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id5");
 
                     b.ToTable("country", (string)null);
                 });
@@ -270,6 +302,7 @@ namespace Persistence.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Employee", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateRegister")
@@ -279,6 +312,7 @@ namespace Persistence.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("IdEmployee")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
@@ -286,15 +320,21 @@ namespace Persistence.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("NameEmployee")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("TelephoneNumber")
+                        .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("varchar(11)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
+
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id6");
 
                     b.HasIndex(new[] { "IdCityFk" }, "IdCityFk")
                         .HasDatabaseName("IdCityFk1");
@@ -307,14 +347,20 @@ namespace Persistence.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Position", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("NamePosition")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
+
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id7");
 
                     b.ToTable("position", (string)null);
                 });
@@ -322,6 +368,7 @@ namespace Persistence.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Programming", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("IdContractFk")
@@ -336,6 +383,10 @@ namespace Persistence.Data.Migrations
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id8");
+
                     b.HasIndex(new[] { "IdContractFk" }, "IdContractFk");
 
                     b.HasIndex(new[] { "IdEmployeeFk" }, "IdEmployeeFk")
@@ -349,17 +400,23 @@ namespace Persistence.Data.Migrations
             modelBuilder.Entity("Domain.Entities.State", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("IdCountryFk")
                         .HasColumnType("int");
 
                     b.Property<string>("NameState")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
+
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id9");
 
                     b.HasIndex(new[] { "IdCountryFk" }, "IdCountryFk");
 
@@ -369,13 +426,19 @@ namespace Persistence.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Statecontract", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
+
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id10");
 
                     b.ToTable("statecontract", (string)null);
                 });
@@ -383,6 +446,7 @@ namespace Persistence.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Turn", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<TimeOnly>("HourShiftFinally")
@@ -392,33 +456,44 @@ namespace Persistence.Data.Migrations
                         .HasColumnType("time");
 
                     b.Property<string>("NameTurns")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id11");
+
                     b.ToTable("turns", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.Typeperson", b =>
+            modelBuilder.Entity("Domain.Entities.TypePerson", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
+                    b.HasIndex(new[] { "Id" }, "Id")
+                        .IsUnique()
+                        .HasDatabaseName("Id12");
+
                     b.ToTable("typeperson", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.Addressclient", b =>
+            modelBuilder.Entity("Domain.Entities.AddressClient", b =>
                 {
                     b.HasOne("Domain.Entities.Client", "IdClientFkNavigation")
-                        .WithMany("Addressclients")
+                        .WithMany("AddressClients")
                         .HasForeignKey("IdClientFk")
                         .IsRequired()
                         .HasConstraintName("addressclient_ibfk_1");
@@ -426,7 +501,7 @@ namespace Persistence.Data.Migrations
                     b.Navigation("IdClientFkNavigation");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Addressoffice", b =>
+            modelBuilder.Entity("Domain.Entities.AddressOffice", b =>
                 {
                     b.HasOne("Domain.Entities.Employee", "IdEmployeeFkNavigation")
                         .WithMany("Addressoffices")
@@ -441,7 +516,9 @@ namespace Persistence.Data.Migrations
                 {
                     b.HasOne("Domain.Entities.State", "IdStateFkNavigation")
                         .WithMany("Cities")
-                        .HasForeignKey("IdStateFkNavigationId");
+                        .HasForeignKey("IdStateFk")
+                        .IsRequired()
+                        .HasConstraintName("city_ibfk_1");
 
                     b.Navigation("IdStateFkNavigation");
                 });
@@ -453,7 +530,7 @@ namespace Persistence.Data.Migrations
                         .HasForeignKey("IdCityFk")
                         .HasConstraintName("client_ibfk_1");
 
-                    b.HasOne("Domain.Entities.Typeperson", "IdTpersonFkNavigation")
+                    b.HasOne("Domain.Entities.TypePerson", "IdTpersonFkNavigation")
                         .WithMany("Clients")
                         .HasForeignKey("IdTpersonFk")
                         .HasConstraintName("client_ibfk_2");
@@ -556,7 +633,7 @@ namespace Persistence.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Client", b =>
                 {
-                    b.Navigation("Addressclients");
+                    b.Navigation("AddressClients");
 
                     b.Navigation("Contracts");
                 });
@@ -600,7 +677,7 @@ namespace Persistence.Data.Migrations
                     b.Navigation("Programmings");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Typeperson", b =>
+            modelBuilder.Entity("Domain.Entities.TypePerson", b =>
                 {
                     b.Navigation("Clients");
                 });

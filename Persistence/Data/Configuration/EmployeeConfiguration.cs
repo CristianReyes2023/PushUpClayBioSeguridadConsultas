@@ -16,15 +16,22 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("employee");
 
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
             builder.HasIndex(e => e.IdCityFk, "IdCityFk");
 
             builder.HasIndex(e => e.IdPositionFk, "IdPositionFk");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
             builder.Property(e => e.DateRegister).HasColumnType("datetime");
-            builder.Property(e => e.IdEmployee).HasMaxLength(50);
-            builder.Property(e => e.NameEmployee).HasMaxLength(50);
-            builder.Property(e => e.TelephoneNumber).HasMaxLength(11);
+            builder.Property(e => e.IdEmployee)
+                .IsRequired()
+                .HasMaxLength(50);
+            builder.Property(e => e.NameEmployee)
+                .IsRequired()
+                .HasMaxLength(50);
+            builder.Property(e => e.TelephoneNumber)
+                .IsRequired()
+                .HasMaxLength(11);
 
             builder.HasOne(d => d.IdCityFkNavigation).WithMany(p => p.Employees)
                 .HasForeignKey(d => d.IdCityFk)

@@ -16,13 +16,13 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("programming");
 
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
             builder.HasIndex(e => e.IdContractFk, "IdContractFk");
 
             builder.HasIndex(e => e.IdEmployeeFk, "IdEmployeeFk");
 
             builder.HasIndex(e => e.IdTurnFk, "IdTurnFk");
-
-            builder.Property(e => e.Id).ValueGeneratedNever();
 
             builder.HasOne(d => d.IdContractFkNavigation).WithMany(p => p.Programmings)
                 .HasForeignKey(d => d.IdContractFk)

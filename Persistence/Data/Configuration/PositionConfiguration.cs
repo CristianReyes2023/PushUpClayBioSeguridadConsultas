@@ -16,8 +16,11 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("position");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
-            builder.Property(e => e.NamePosition).HasMaxLength(50);
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
+            builder.Property(e => e.NamePosition)
+                .IsRequired()
+                .HasMaxLength(50);
         }
     }
 }

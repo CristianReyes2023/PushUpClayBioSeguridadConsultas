@@ -24,5 +24,5 @@ public partial class Client : BaseEntity
 
     public virtual City IdCityFkNavigation { get; set; }
 
-    public virtual Typeperson IdTpersonFkNavigation { get; set; }
+    public virtual TypePerson IdTpersonFkNavigation { get; set; }
 }

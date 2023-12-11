@@ -16,16 +16,23 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("client");
 
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
             builder.HasIndex(e => e.IdCityFk, "IdCityFk");
 
             builder.HasIndex(e => e.IdTpersonFk, "IdTPersonFk");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
             builder.Property(e => e.DateRegister).HasColumnType("datetime");
-            builder.Property(e => e.IdClient).HasMaxLength(50);
+            builder.Property(e => e.IdClient)
+                .IsRequired()
+                .HasMaxLength(50);
             builder.Property(e => e.IdTpersonFk).HasColumnName("IdTPersonFk");
-            builder.Property(e => e.NameCliente).HasMaxLength(50);
-            builder.Property(e => e.TelephoneNumber).HasMaxLength(11);
+            builder.Property(e => e.NameCliente)
+                .IsRequired()
+                .HasMaxLength(50);
+            builder.Property(e => e.TelephoneNumber)
+                .IsRequired()
+                .HasMaxLength(11);
 
             builder.HasOne(d => d.IdCityFkNavigation).WithMany(p => p.Clients)
                 .HasForeignKey(d => d.IdCityFk)
@@ -33,7 +40,7 @@ namespace Persistence.Data.Configuration
 
             builder.HasOne(d => d.IdTpersonFkNavigation).WithMany(p => p.Clients)
                 .HasForeignKey(d => d.IdTpersonFk)
-                .HasConstraintName("client_ibfk_2"); ;
+                .HasConstraintName("client_ibfk_2");
         }
     }
 }

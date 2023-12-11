@@ -19,8 +19,9 @@ namespace Persistence.Data.Migrations
             //     name: "country",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
-            //         NameCountry = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+            //         NameCountry = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4")
             //     },
             //     constraints: table =>
@@ -33,8 +34,9 @@ namespace Persistence.Data.Migrations
             //     name: "position",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
-            //         NamePosition = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+            //         NamePosition = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4")
             //     },
             //     constraints: table =>
@@ -47,8 +49,9 @@ namespace Persistence.Data.Migrations
             //     name: "statecontract",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
-            //         Description = table.Column<string>(type: "text", nullable: true)
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+            //         Description = table.Column<string>(type: "text", nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4")
             //     },
             //     constraints: table =>
@@ -61,8 +64,9 @@ namespace Persistence.Data.Migrations
             //     name: "turns",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
-            //         NameTurns = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+            //         NameTurns = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
             //         HourShiftStart = table.Column<TimeOnly>(type: "time", nullable: false),
             //         HourShiftFinally = table.Column<TimeOnly>(type: "time", nullable: false)
@@ -77,8 +81,9 @@ namespace Persistence.Data.Migrations
             //     name: "typeperson",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
-            //         Description = table.Column<string>(type: "text", nullable: true)
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+            //         Description = table.Column<string>(type: "text", nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4")
             //     },
             //     constraints: table =>
@@ -91,8 +96,9 @@ namespace Persistence.Data.Migrations
             //     name: "state",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
-            //         NameState = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+            //         NameState = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
             //         IdCountryFk = table.Column<int>(type: "int", nullable: false)
             //     },
@@ -108,22 +114,21 @@ namespace Persistence.Data.Migrations
             //     .Annotation("MySql:CharSet", "utf8mb4");
 
             // migrationBuilder.CreateTable(
-            //     name: "Cities",
+            //     name: "city",
             //     columns: table => new
             //     {
             //         Id = table.Column<int>(type: "int", nullable: false)
             //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-            //         NameCity = table.Column<string>(type: "longtext", nullable: true)
+            //         NameCity = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
-            //         IdStateFk = table.Column<int>(type: "int", nullable: false),
-            //         IdStateFkNavigationId = table.Column<int>(type: "int", nullable: true)
+            //         IdStateFk = table.Column<int>(type: "int", nullable: false)
             //     },
             //     constraints: table =>
             //     {
-            //         table.PrimaryKey("PK_Cities", x => x.Id);
+            //         table.PrimaryKey("PRIMARY", x => x.Id);
             //         table.ForeignKey(
-            //             name: "FK_Cities_state_IdStateFkNavigationId",
-            //             column: x => x.IdStateFkNavigationId,
+            //             name: "city_ibfk_1",
+            //             column: x => x.IdStateFk,
             //             principalTable: "state",
             //             principalColumn: "Id");
             //     })
@@ -133,13 +138,14 @@ namespace Persistence.Data.Migrations
             //     name: "client",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
-            //         IdClient = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+            //         IdClient = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
-            //         NameCliente = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+            //         NameCliente = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
             //         DateRegister = table.Column<DateTime>(type: "datetime", nullable: false),
-            //         TelephoneNumber = table.Column<string>(type: "varchar(11)", maxLength: 11, nullable: true)
+            //         TelephoneNumber = table.Column<string>(type: "varchar(11)", maxLength: 11, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
             //         IdTPersonFk = table.Column<int>(type: "int", nullable: true),
             //         IdCityFk = table.Column<int>(type: "int", nullable: true)
@@ -150,7 +156,7 @@ namespace Persistence.Data.Migrations
             //         table.ForeignKey(
             //             name: "client_ibfk_1",
             //             column: x => x.IdCityFk,
-            //             principalTable: "Cities",
+            //             principalTable: "city",
             //             principalColumn: "Id");
             //         table.ForeignKey(
             //             name: "client_ibfk_2",
@@ -164,13 +170,14 @@ namespace Persistence.Data.Migrations
             //     name: "employee",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
-            //         IdEmployee = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+            //         IdEmployee = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
-            //         NameEmployee = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+            //         NameEmployee = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
             //         DateRegister = table.Column<DateTime>(type: "datetime", nullable: false),
-            //         TelephoneNumber = table.Column<string>(type: "varchar(11)", maxLength: 11, nullable: true)
+            //         TelephoneNumber = table.Column<string>(type: "varchar(11)", maxLength: 11, nullable: false)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
             //         IdCityFk = table.Column<int>(type: "int", nullable: false),
             //         IdPositionFk = table.Column<int>(type: "int", nullable: false)
@@ -181,7 +188,7 @@ namespace Persistence.Data.Migrations
             //         table.ForeignKey(
             //             name: "employee_ibfk_1",
             //             column: x => x.IdCityFk,
-            //             principalTable: "Cities",
+            //             principalTable: "city",
             //             principalColumn: "Id");
             //         table.ForeignKey(
             //             name: "employee_ibfk_2",
@@ -195,7 +202,8 @@ namespace Persistence.Data.Migrations
             //     name: "addressclient",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
             //         tipo_via = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
             //         numero_principal = table.Column<short>(type: "smallint", nullable: false),
@@ -230,7 +238,8 @@ namespace Persistence.Data.Migrations
             //     name: "addressoffice",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
             //         tipo_via = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
             //             .Annotation("MySql:CharSet", "utf8mb4"),
             //         numero_principal = table.Column<short>(type: "smallint", nullable: false),
@@ -265,7 +274,8 @@ namespace Persistence.Data.Migrations
             //     name: "contract",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
             //         DateContract = table.Column<DateTime>(type: "datetime", nullable: false),
             //         DATEFINAL = table.Column<DateTime>(type: "datetime", nullable: false),
             //         IdClientFk = table.Column<int>(type: "int", nullable: false),
@@ -297,7 +307,8 @@ namespace Persistence.Data.Migrations
             //     name: "programming",
             //     columns: table => new
             //     {
-            //         Id = table.Column<int>(type: "int", nullable: false),
+            //         Id = table.Column<int>(type: "int", nullable: false)
+            //             .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
             //         IdContractFk = table.Column<int>(type: "int", nullable: false),
             //         IdTurnFk = table.Column<int>(type: "int", nullable: false),
             //         IdEmployeeFk = table.Column<int>(type: "int", nullable: false)
@@ -324,9 +335,10 @@ namespace Persistence.Data.Migrations
             //     .Annotation("MySql:CharSet", "utf8mb4");
 
             // migrationBuilder.CreateIndex(
-            //     name: "IX_Cities_IdStateFkNavigationId",
-            //     table: "Cities",
-            //     column: "IdStateFkNavigationId");
+            //     name: "Id",
+            //     table: "addressclient",
+            //     column: "Id",
+            //     unique: true);
 
             // migrationBuilder.CreateIndex(
             //     name: "IdClientFk",
@@ -334,9 +346,32 @@ namespace Persistence.Data.Migrations
             //     column: "IdClientFk");
 
             // migrationBuilder.CreateIndex(
+            //     name: "Id1",
+            //     table: "addressoffice",
+            //     column: "Id",
+            //     unique: true);
+
+            // migrationBuilder.CreateIndex(
             //     name: "IdEmployeeFk",
             //     table: "addressoffice",
             //     column: "IdEmployeeFk");
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id2",
+            //     table: "city",
+            //     column: "Id",
+            //     unique: true);
+
+            // migrationBuilder.CreateIndex(
+            //     name: "IdStateFk",
+            //     table: "city",
+            //     column: "IdStateFk");
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id3",
+            //     table: "client",
+            //     column: "Id",
+            //     unique: true);
 
             // migrationBuilder.CreateIndex(
             //     name: "IdCityFk",
@@ -347,6 +382,12 @@ namespace Persistence.Data.Migrations
             //     name: "IdTPersonFk",
             //     table: "client",
             //     column: "IdTPersonFk");
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id4",
+            //     table: "contract",
+            //     column: "Id",
+            //     unique: true);
 
             // migrationBuilder.CreateIndex(
             //     name: "IdClientFk1",
@@ -364,6 +405,18 @@ namespace Persistence.Data.Migrations
             //     column: "IdStateContractFk");
 
             // migrationBuilder.CreateIndex(
+            //     name: "Id5",
+            //     table: "country",
+            //     column: "Id",
+            //     unique: true);
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id6",
+            //     table: "employee",
+            //     column: "Id",
+            //     unique: true);
+
+            // migrationBuilder.CreateIndex(
             //     name: "IdCityFk1",
             //     table: "employee",
             //     column: "IdCityFk");
@@ -372,6 +425,18 @@ namespace Persistence.Data.Migrations
             //     name: "IdPositionFk",
             //     table: "employee",
             //     column: "IdPositionFk");
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id7",
+            //     table: "position",
+            //     column: "Id",
+            //     unique: true);
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id8",
+            //     table: "programming",
+            //     column: "Id",
+            //     unique: true);
 
             // migrationBuilder.CreateIndex(
             //     name: "IdContractFk",
@@ -389,9 +454,33 @@ namespace Persistence.Data.Migrations
             //     column: "IdTurnFk");
 
             // migrationBuilder.CreateIndex(
+            //     name: "Id9",
+            //     table: "state",
+            //     column: "Id",
+            //     unique: true);
+
+            // migrationBuilder.CreateIndex(
             //     name: "IdCountryFk",
             //     table: "state",
             //     column: "IdCountryFk");
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id10",
+            //     table: "statecontract",
+            //     column: "Id",
+            //     unique: true);
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id11",
+            //     table: "turns",
+            //     column: "Id",
+            //     unique: true);
+
+            // migrationBuilder.CreateIndex(
+            //     name: "Id12",
+            //     table: "typeperson",
+            //     column: "Id",
+            //     unique: true);
         }
 
         /// <inheritdoc />
@@ -425,7 +514,7 @@ namespace Persistence.Data.Migrations
             //     name: "position");
 
             // migrationBuilder.DropTable(
-            //     name: "Cities");
+            //     name: "city");
 
             // migrationBuilder.DropTable(
             //     name: "typeperson");

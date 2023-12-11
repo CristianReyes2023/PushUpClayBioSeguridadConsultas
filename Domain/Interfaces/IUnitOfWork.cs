@@ -18,6 +18,7 @@ namespace Domain.Interfaces
         IPosition Positions {get;}
         IProgramming Programmings {get;}
         IState States {get;}
+        IStateContract StateContracts {get;}
         ITurn Turns {get;}
         ITypePerson TypePersons {get;}
 

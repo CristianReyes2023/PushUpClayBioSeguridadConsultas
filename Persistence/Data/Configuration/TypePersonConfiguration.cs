@@ -16,8 +16,11 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("typeperson");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
-            builder.Property(e => e.Description).HasColumnType("text");
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
+            builder.Property(e => e.Description)
+                .IsRequired()
+                .HasColumnType("text");
         }
     }
 }

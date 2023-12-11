@@ -16,13 +16,14 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("contract");
 
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
             builder.HasIndex(e => e.IdClientFk, "IdClientFk");
 
             builder.HasIndex(e => e.IdEmployeeFk, "IdEmployeeFk");
 
             builder.HasIndex(e => e.IdStateContractFk, "IdStateContractFk");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
             builder.Property(e => e.DateContract).HasColumnType("datetime");
             builder.Property(e => e.Datefinal)
                 .HasColumnType("datetime")

@@ -16,10 +16,13 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("state");
 
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
             builder.HasIndex(e => e.IdCountryFk, "IdCountryFk");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
-            builder.Property(e => e.NameState).HasMaxLength(50);
+            builder.Property(e => e.NameState)
+                .IsRequired()
+                .HasMaxLength(50);
 
             builder.HasOne(d => d.IdCountryFkNavigation).WithMany(p => p.States)
                 .HasForeignKey(d => d.IdCountryFk)

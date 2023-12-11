@@ -16,8 +16,11 @@ namespace Persistence.Data.Configuration
 
             builder.ToTable("country");
 
-            builder.Property(e => e.Id).ValueGeneratedNever();
-            builder.Property(e => e.NameCountry).HasMaxLength(50);
+            builder.HasIndex(e => e.Id, "Id").IsUnique();
+
+            builder.Property(e => e.NameCountry)
+                .IsRequired()
+                .HasMaxLength(50);
         }
     }
 }
