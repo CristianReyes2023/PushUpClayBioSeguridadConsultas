@@ -6,7 +6,7 @@ using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    public interface ICity : IGenericRepository<City>
+    public interface ICountry : IGenericRepository<Country>
     {
         
     }

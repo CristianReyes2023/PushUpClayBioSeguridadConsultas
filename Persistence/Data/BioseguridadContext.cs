@@ -45,7 +45,7 @@ public partial class BioseguridadContext : DbContext
 
     public virtual DbSet<Turn> Turns { get; set; }
 
-    public virtual DbSet<Typeperson> Typepeople { get; set; }
+    public virtual DbSet<TypePerson> TypePerson { get; set; }
 
     // public virtual DbSet<User> Users { get; set; }
 

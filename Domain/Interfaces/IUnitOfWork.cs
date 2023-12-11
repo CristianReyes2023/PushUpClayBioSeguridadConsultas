@@ -12,6 +12,7 @@ namespace Domain.Interfaces
         IAddressOffice AddressOffices {get;}
         ICity Cities {get;}
         IClient Clients {get;}
+        ICountry Countries {get;}
         IContract Contracts {get;}
         IEmployee Employees {get;}
         IPosition Positions {get;}
