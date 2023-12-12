@@ -27,7 +27,7 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<IEnumerable<AddressClientDto>>> Get()
         {
-            var results = await _unitOfWork.AddressClients.GetAllAsync();
+            var results = await _unitOfWork.Addressclients.GetAllAsync();
             return _mapper.Map<List<AddressClientDto>>(results);
         }
 
@@ -37,7 +37,7 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<AddressClientDto>> Get(int id)
         {
-            var result = await _unitOfWork.AddressClients.GetByIdAsync(id);
+            var result = await _unitOfWork.Addressclients.GetByIdAsync(id);
             if (result == null)
             {
                 return NotFound();
@@ -49,8 +49,8 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<AddressClientDto>> Post(AddressClientDto resultDto)
         {
-            var result = _mapper.Map<AddressClient>(resultDto);
-            _unitOfWork.AddressClients.Add(result);
+            var result = _mapper.Map<Addressclient>(resultDto);
+            _unitOfWork.Addressclients.Add(result);
             await _unitOfWork.SaveAsync();
             if (result == null)
             {
@@ -65,7 +65,7 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<AddressClientDto>> Put(int id, [FromBody] AddressClientDto resultDto)
         {
-            var exists = await _unitOfWork.AddressClients.GetByIdAsync(id);
+            var exists = await _unitOfWork.Addressclients.GetByIdAsync(id);
             if (exists == null)
             {
                 return NotFound();
@@ -94,12 +94,12 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _unitOfWork.AddressClients.GetByIdAsync(id);
+            var result = await _unitOfWork.Addressclients.GetByIdAsync(id);
             if (result == null)
             {
                 return NotFound();
             }
-            _unitOfWork.AddressClients.Remove(result);
+            _unitOfWork.Addressclients.Remove(result);
             await _unitOfWork.SaveAsync();
             return NoContent();
         }

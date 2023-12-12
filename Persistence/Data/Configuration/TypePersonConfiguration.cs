@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Data.Configuration
 {
-    public class TypePersonConfiguration : IEntityTypeConfiguration<TypePerson>
+    public class TypePersonConfiguration : IEntityTypeConfiguration<Typeperson>
     {
-        public void Configure(EntityTypeBuilder<TypePerson> builder)
+        public void Configure(EntityTypeBuilder<Typeperson> builder)
         {
             builder.HasKey(e => e.Id).HasName("PRIMARY");
 

@@ -11,8 +11,8 @@ public class MappingProfiles : Profile
 {
     public MappingProfiles()
     {
-        CreateMap<AddressClient,AddressClientDto>().ReverseMap();
-        CreateMap<AddressOffice, AddressOfficeDto>().ReverseMap();
+        CreateMap<Addressclient,AddressClientDto>().ReverseMap();
+        CreateMap<Addressoffice, AddressOfficeDto>().ReverseMap();
         CreateMap<City, CityDto>().ReverseMap();
         CreateMap<Client, ClientDto>().ReverseMap();
         CreateMap<Contract, ContractDto>().ReverseMap();
@@ -23,6 +23,6 @@ public class MappingProfiles : Profile
         CreateMap<StateContract, StateContractDto>().ReverseMap();
         CreateMap<State, StateDto>().ReverseMap();
         CreateMap<Turn, TurnDto>().ReverseMap();
-        CreateMap<TypePerson, TypePersonDto>().ReverseMap();
+        CreateMap<Typeperson, TypePersonDto>().ReverseMap();
     }
 }

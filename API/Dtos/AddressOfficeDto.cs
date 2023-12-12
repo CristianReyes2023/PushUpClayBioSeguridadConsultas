@@ -10,7 +10,7 @@ namespace API.Dtos
         public int Id { get; set; }
         public string TipoVia { get; set; }
 
-        public short NumeroPrincipal { get; set; }
+        public short? NumeroPrincipal { get; set; }
 
         public string LetraPrincipal { get; set; }
 
@@ -20,14 +20,12 @@ namespace API.Dtos
 
         public string CardinalPrimario { get; set; }
 
-        public short NumeroSecundario { get; set; }
+        public short? NumeroSecundario { get; set; }
 
         public string CardinalSecundario { get; set; }
 
         public string Complemento { get; set; }
 
         public int IdEmployeeFk { get; set; }
-
-        public int IdTaddressFk { get; set; }
     }
 }

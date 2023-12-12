@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Data.Configuration
 {
-    public class AddressClientConfiguration : IEntityTypeConfiguration<AddressClient>
+    public class AddressClientConfiguration : IEntityTypeConfiguration<Addressclient>
     {
-        public void Configure(EntityTypeBuilder<AddressClient> builder)
+        public void Configure(EntityTypeBuilder<Addressclient> builder)
         {
             builder.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -35,7 +35,6 @@ namespace Persistence.Data.Configuration
             builder.Property(e => e.Complemento)
                 .HasMaxLength(50)
                 .HasColumnName("complemento");
-            builder.Property(e => e.IdTaddressFk).HasColumnName("IdTAddressFk");
             builder.Property(e => e.LetraPrincipal)
                 .HasMaxLength(2)
                 .IsFixedLength()
@@ -50,10 +49,11 @@ namespace Persistence.Data.Configuration
                 .HasMaxLength(50)
                 .HasColumnName("tipo_via");
 
-            builder.HasOne(d => d.IdClientFkNavigation).WithMany(p => p.AddressClients)
+            builder.HasOne(d => d.IdClientFkNavigation).WithMany(p => p.Addressclients)
                 .HasForeignKey(d => d.IdClientFk)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("addressclient_ibfk_1");
         }
+
     }
 }

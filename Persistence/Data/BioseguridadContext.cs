@@ -14,9 +14,9 @@ public partial class BioseguridadContext : DbContext
     {
     }
 
-    public virtual DbSet<AddressClient> Addressclients { get; set; }
+    public virtual DbSet<Addressclient> Addressclients { get; set; }
 
-    public virtual DbSet<AddressOffice> Addressoffices { get; set; }
+    public virtual DbSet<Addressoffice> Addressoffices { get; set; }
 
     public virtual DbSet<City> Cities { get; set; }
 
@@ -42,7 +42,7 @@ public partial class BioseguridadContext : DbContext
 
     public virtual DbSet<Turn> Turns { get; set; }
 
-    public virtual DbSet<TypePerson> TypePerson { get; set; }
+    public virtual DbSet<Typeperson> TypePerson { get; set; }
 
     // public virtual DbSet<User> Users { get; set; }
 

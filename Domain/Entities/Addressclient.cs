@@ -3,12 +3,11 @@ using System.Collections.Generic;
 
 namespace Domain.Entities;
 
-public partial class AddressClient : BaseEntity
+public partial class Addressclient : BaseEntity
 {
-
     public string TipoVia { get; set; }
 
-    public short NumeroPrincipal { get; set; }
+    public short? NumeroPrincipal { get; set; }
 
     public string LetraPrincipal { get; set; }
 
@@ -18,15 +17,12 @@ public partial class AddressClient : BaseEntity
 
     public string CardinalPrimario { get; set; }
 
-    public short NumeroSecundario { get; set; }
+    public short? NumeroSecundario { get; set; }
 
     public string CardinalSecundario { get; set; }
 
     public string Complemento { get; set; }
 
     public int IdClientFk { get; set; }
-
-    public int IdTaddressFk { get; set; }
-
-    public virtual Client IdClientFkNavigation { get; set; } = null!;
+    public virtual Client IdClientFkNavigation { get; set; }
 }

@@ -8,7 +8,7 @@ using Persistence.Data;
 
 namespace Application.Repositories
 {
-    public class AddressClientRepository : GenericRepository<AddressClient>, IAddressClient
+    public class AddressClientRepository : GenericRepository<Addressclient>, IAddressclient
     {
         private readonly BioseguridadContext _context;
 

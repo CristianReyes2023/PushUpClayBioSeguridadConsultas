@@ -6,7 +6,7 @@ using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    public interface IAddressClient : IGenericRepository<AddressClient>
+    public interface IAddressclient : IGenericRepository<Addressclient>
     {
         
     }

@@ -18,7 +18,7 @@ public partial class Employee : BaseEntity
 
     public int IdPositionFk { get; set; }
 
-    public virtual ICollection<AddressOffice> Addressoffices { get; set; } = new List<AddressOffice>();
+    public virtual ICollection<Addressoffice> Addressoffices { get; set; } = new List<Addressoffice>();
 
     public virtual ICollection<Contract> Contracts { get; set; } = new List<Contract>();
 

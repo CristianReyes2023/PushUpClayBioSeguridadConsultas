@@ -263,6 +263,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `statecontract` WRITE;
 /*!40000 ALTER TABLE `statecontract` DISABLE KEYS */;
+INSERT INTO `statecontract` VALUES (1,'Prestación de servicios'),(2,'Ejecución papeleria'),(3,'Consultoria de seguridad'),(4,'Compra de equimamientos para vigilantes'),(5,'Vigilancia Cacique');
 /*!40000 ALTER TABLE `statecontract` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,6 +273,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `turns` WRITE;
 /*!40000 ALTER TABLE `turns` DISABLE KEYS */;
+INSERT INTO `turns` VALUES (1,'Mañana','06:00:00','02:00:00'),(3,'Tarde','02:00:00','10:00:00'),(4,'Noche','10:00:00','06:00:00');
 /*!40000 ALTER TABLE `turns` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -294,4 +296,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-11 13:56:42
+-- Dump completed on 2023-12-12  7:07:36
+

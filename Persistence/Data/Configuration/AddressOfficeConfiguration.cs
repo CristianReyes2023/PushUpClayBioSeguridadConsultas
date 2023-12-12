@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Data.Configuration
 {
-    public class AddressOfficeConfiguration : IEntityTypeConfiguration<AddressOffice>
+    public class AddressOfficeConfiguration : IEntityTypeConfiguration<Addressoffice>
     {
-        public void Configure(EntityTypeBuilder<AddressOffice> builder)
+        public void Configure(EntityTypeBuilder<Addressoffice> builder)
         {
             builder.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -35,7 +35,6 @@ namespace Persistence.Data.Configuration
             builder.Property(e => e.Complemento)
                 .HasMaxLength(50)
                 .HasColumnName("complemento");
-            builder.Property(e => e.IdTaddressFk).HasColumnName("IdTAddressFk");
             builder.Property(e => e.LetraPrincipal)
                 .HasMaxLength(2)
                 .IsFixedLength()

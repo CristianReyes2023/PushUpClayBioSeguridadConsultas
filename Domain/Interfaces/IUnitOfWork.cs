@@ -8,8 +8,8 @@ namespace Domain.Interfaces
 {
     public interface IUnitOfWork
     {
-        IAddressClient AddressClients {get;}
-        IAddressOffice AddressOffices {get;}
+        IAddressclient Addressclients {get;}
+        IAddressoffice Addressoffices {get;}
         ICity Cities {get;}
         IClient Clients {get;}
         ICountry Countries {get;}
@@ -20,7 +20,7 @@ namespace Domain.Interfaces
         IState States {get;}
         IStateContract StateContracts {get;}
         ITurn Turns {get;}
-        ITypePerson TypePersons {get;}
+        ITypeperson TypePersons {get;}
 
         Task<int> SaveAsync();
     }

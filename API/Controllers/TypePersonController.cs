@@ -12,12 +12,12 @@ using Persistence.Data;
 
 namespace API.Controllers
 {
-    public class TypePersonController : BaseController
+    public class TypepersonController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public TypePersonController(IUnitOfWork unitOfWork,IMapper mapper)
+        public TypepersonController(IUnitOfWork unitOfWork,IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -50,7 +50,7 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<TypePersonDto>> Post(TypePersonDto resultDto)
         {
-            var result = _mapper.Map<TypePerson>(resultDto);
+            var result = _mapper.Map<Typeperson>(resultDto);
             _unitOfWork.TypePersons.Add(result);
             await _unitOfWork.SaveAsync();
             if (result == null)

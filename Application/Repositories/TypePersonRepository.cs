@@ -8,7 +8,7 @@ using Persistence.Data;
 
 namespace Application.Repositories
 {
-    public class TypePersonRepository : GenericRepository<TypePerson>, ITypePerson
+    public class TypePersonRepository : GenericRepository<Typeperson>, ITypeperson
     {
         private readonly BioseguridadContext _context;
 

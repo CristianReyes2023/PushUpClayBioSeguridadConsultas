@@ -14,13 +14,9 @@ public partial class Contract : BaseEntity
 
     public int IdEmployeeFk { get; set; }
 
-    public int IdStateContractFk { get; set; }
+    public virtual Client IdClientFkNavigation { get; set; }
 
-    public virtual Client IdClientFkNavigation { get; set; } = null!;
-
-    public virtual Employee IdEmployeeFkNavigation { get; set; } = null!;
-
-    public virtual StateContract IdStateContractFkNavigation { get; set; } = null!;
+    public virtual Employee IdEmployeeFkNavigation { get; set; }
 
     public virtual ICollection<Programming> Programmings { get; set; } = new List<Programming>();
 }

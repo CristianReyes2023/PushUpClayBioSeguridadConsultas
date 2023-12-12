@@ -18,8 +18,8 @@ namespace Application.UnitOfWork
             _context = context;
         }
 
-        private IAddressClient _addressClient;
-        private IAddressOffice _addressOffice;
+        private IAddressclient _addressClient;
+        private IAddressoffice _addressOffice;
         private ICity _cities;
         private IClient _client;
         private IContract _contract;
@@ -30,9 +30,9 @@ namespace Application.UnitOfWork
         private IState _state;
         private IStateContract _stateContract;
         private ITurn _turn;
-        private ITypePerson _typePerson;
+        private ITypeperson _typePerson;
 
-        public IAddressClient AddressClients
+        public IAddressclient Addressclients
         {
             get
             {
@@ -43,7 +43,7 @@ namespace Application.UnitOfWork
                 return _addressClient;
             }
         }
-        public IAddressOffice AddressOffices
+        public IAddressoffice Addressoffices
         {
             get
             {
@@ -63,17 +63,6 @@ namespace Application.UnitOfWork
                     _cities = new CityRepository(_context); // Remember putting the base in the repository of this entity
                 }
                 return _cities;
-            }
-        }
-        public IAddressClient AddressClient
-        {
-            get
-            {
-                if (_addressClient == null)
-                {
-                    _addressClient = new AddressClientRepository(_context); // Remember putting the base in the repository of this entity
-                }
-                return _addressClient;
             }
         }
         public IClient Clients
@@ -164,7 +153,7 @@ namespace Application.UnitOfWork
                 return _turn;
             }
         }
-        public ITypePerson TypePersons
+        public ITypeperson TypePersons
         {
             get
             {

@@ -103,5 +103,13 @@ namespace API.Controllers
             await _unitOfWork.SaveAsync();
             return NoContent();
         }
+        [HttpGet("GetEmployees")] // 2611
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<IEnumerable<Object>>> GetEmployees()
+        {
+            var results = await _unitOfWork.Employees.GetEmployees();
+            return _mapper.Map<List<Object>>(results);
+        }
     }
 }
